@@ -1,6 +1,6 @@
 module github.com/veraison/da
 
-go 1.23.0
+go 1.23
 
 require (
 	github.com/fxamacker/cbor/v2 v2.9.0

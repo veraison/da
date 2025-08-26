@@ -1,0 +1,13 @@
+{
+  / profile / 265: "tag:linaro.org,2025:device-spdm#1.0.0",
+  / measurements / 1: {
+    1: {
+      / component-type /  1: 2, / hardware config /
+      / raw-measurement / 3: h'4f6d616861'
+    }
+  },
+  / certificates / 2: {
+    / device certs / 0: h'676f616e6e61747261646974696f6e6d6f6e676572'
+    / no aux certs /
+  }
+}

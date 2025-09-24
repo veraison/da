@@ -3,6 +3,11 @@
 
 package da
 
+import (
+	"crypto/x509"
+	"fmt"
+)
+
 type SPDMClaims struct {
 	EatProfile   string                          `cbor:"265,keyasint"`
 	Measurements map[uint8]SPDMMeasurement       `cbor:"1,keyasint"`
@@ -14,6 +19,29 @@ func NewSPDMClaims() *SPDMClaims {
 	return &SPDMClaims{
 		EatProfile: "tag:linaro.org,2025:device-spdm#1.0.0",
 	}
+}
+
+func (s *SPDMClaims) AddMeasurement(index uint8, meas SPDMMeasurement) error {
+	if s.Measurements == nil {
+		s.Measurements = make(map[uint8]SPDMMeasurement)
+	}
+	s.Measurements[index] = meas
+	return nil
+}
+
+func (s *SPDMClaims) SetDefaultCert(certChain []byte) error {
+	certs, err := x509.ParseCertificates(certChain)
+	if err != nil {
+		return fmt.Errorf("parsing cert chain from %q: %w", certChain, err)
+	}
+
+	if len(certs) == 0 {
+		return fmt.Errorf("no valid certificates found in cert chain from %q", certChain)
+	}
+
+	s.Certificates.DefaultCertSlot = certChain
+
+	return nil
 }
 
 type SPDMMeasurementBlocksSignature struct {

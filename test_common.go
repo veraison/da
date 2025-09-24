@@ -19,12 +19,6 @@ func readTestVectorSlice(t *testing.T, fname string) []byte {
 	return b
 }
 
-func readTestVectorString(t *testing.T, fname string) string {
-	b, err := os.ReadFile(path.Join("testvectors", fname)) // nolint:gosec
-	require.NoError(t, err)
-	return string(b)
-}
-
 func exampleSPDMClaims1() *SPDMClaims {
 	return &SPDMClaims{
 		EatProfile: "tag:linaro.org,2025:device-spdm#1.0.0",

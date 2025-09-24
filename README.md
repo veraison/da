@@ -22,10 +22,10 @@ import "github.com/veraison/da"
 
 // Unmarshal a DA token from CBOR
 var token da.DAToken
-err := cbor.Unmarshal(cborBytes, &token)
+err := token.FromCBOR(cborBytes)
 
 // Marshal a DA token to CBOR
-cborBytes, err := cbor.Marshal(token)
+cborBytes, err := token.ToCBOR()
 ```
 
 ## Running Tests

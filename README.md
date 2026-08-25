@@ -21,7 +21,7 @@ go get github.com/veraison/da
 import "github.com/veraison/da"
 
 // Unmarshal a DA token from CBOR
-var token da.DAToken
+var token da.Token
 err := token.FromCBOR(cborBytes)
 
 // Marshal a DA token to CBOR

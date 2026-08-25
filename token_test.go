@@ -1,4 +1,4 @@
-// Copyright 2025 Contributors to the Veraison project.
+// Copyright 2025-2026 Contributors to the Veraison project.
 // SPDX-License-Identifier: Apache-2.0
 
 package da
@@ -13,14 +13,14 @@ import (
 func TestDAToken_Unmarshal_OK(t *testing.T) {
 	tv := []struct {
 		file     string
-		expected DAToken
+		expected Token
 	}{
-		{"eat-da-1.cbor", *exampleDAToken1()},
+		{"eat-da-1.cbor", *exampleToken1()},
 	}
 
 	for _, v := range tv {
 		b := readTestVectorSlice(t, v.file)
-		var actual DAToken
+		var actual Token
 		err := cbor.Unmarshal(b, &actual)
 		assert.NoError(t, err)
 		assert.Equal(t, v.expected, actual)

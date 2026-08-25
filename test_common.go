@@ -74,8 +74,8 @@ func exampleSPDMClaims2() *SPDMClaims {
 	}
 }
 
-func exampleDAToken1() *DAToken {
-	return &DAToken{
+func exampleToken1() *Token {
+	return &Token{
 		EatProfile: "tag:linaro.org,2025:device#1.0.0",
 		EatNonce: [64]byte{
 			0xf9, 0xef, 0xc3, 0x34, 0x15, 0x97, 0xf7, 0x5f,

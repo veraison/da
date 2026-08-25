@@ -64,7 +64,7 @@ TODO.
 			}
 
 			// instantiate the DA EAT
-			dat := da.NewDAToken()
+			dat := da.NewToken()
 
 			// For each device directory in createDeviceDirs compose create the corresponding device submod
 			for _, devDir := range createDeviceDirs {
@@ -154,7 +154,7 @@ func init() {
 	rootCmd.AddCommand(createCmd)
 }
 
-func addDeviceSubmod(dat *da.DAToken, devDir string) error {
+func addDeviceSubmod(dat *da.Token, devDir string) error {
 	fmt.Println(">> adding device submod for", devDir)
 
 	spdmClaims := da.NewSPDMClaims()

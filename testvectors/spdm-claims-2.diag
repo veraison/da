@@ -1,6 +1,6 @@
 {
   / profile / 265: "tag:linaro.org,2025:device-spdm#1.0.0",
-  / measurements / 1: {
+  / measurements / 3802: {
     1: {
       / component-type / 1: 1, / mutable firmware /
       / digest-measurement / 2: [
@@ -16,7 +16,7 @@
       ]
     }
   },
-  / certificates / 2: {
+  / certificates / 3803: {
     / device certs / 0: h'61746865697A656178696C6C6172',
     / aux certs (slot=2) / 2: h'23451576923AE99106783948598A'
   }

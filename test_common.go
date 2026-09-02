@@ -1,4 +1,4 @@
-// Copyright 2025 Contributors to the Veraison project.
+// Copyright 2025-2026 Contributors to the Veraison project.
 // SPDX-License-Identifier: Apache-2.0
 
 package da
@@ -28,7 +28,7 @@ func exampleSPDMClaims1() *SPDMClaims {
 				RawMeasurement: &[]byte{0x4f, 0x6d, 0x61, 0x68, 0x61},
 			},
 		},
-		Certificates: SPDMCertificates{
+		Certificates: &SPDMCertificates{
 			DefaultCertSlot: []byte{
 				0x67, 0x6f, 0x61, 0x6e, 0x6e, 0x61, 0x74, 0x72,
 				0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x6d,
@@ -61,7 +61,7 @@ func exampleSPDMClaims2() *SPDMClaims {
 				},
 			},
 		},
-		Certificates: SPDMCertificates{
+		Certificates: &SPDMCertificates{
 			DefaultCertSlot: []byte{
 				0x61, 0x74, 0x68, 0x65, 0x69, 0x7a, 0x65, 0x61,
 				0x78, 0x69, 0x6c, 0x6c, 0x61, 0x72,

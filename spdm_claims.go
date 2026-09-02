@@ -1,4 +1,4 @@
-// Copyright 2025 Contributors to the Veraison project.
+// Copyright 2025-2026 Contributors to the Veraison project.
 // SPDX-License-Identifier: Apache-2.0
 
 package da
@@ -9,10 +9,12 @@ import (
 )
 
 type SPDMClaims struct {
-	EatProfile   string                          `cbor:"265,keyasint"`
-	Measurements map[uint8]SPDMMeasurement       `cbor:"1,keyasint"`
-	Signature    *SPDMMeasurementBlocksSignature `cbor:"signature,omitempty"`
-	Certificates SPDMCertificates                `cbor:"2,keyasint"`
+	EatProfile            string                          `cbor:"265,keyasint"`
+	Measurements          map[uint8]SPDMMeasurement       `cbor:"3802,keyasint,omitempty"`
+	Certificates          *SPDMCertificates               `cbor:"3803,keyasint,omitempty"`
+	VCA                   *[]byte                         `cbor:"3804,keyasint,omitempty"`
+	Challenge             *SPDMMeasurementBlocksSignature `cbor:"3807,keyasint,omitempty"`
+	DeviceInterfaceReport *TDISPDeviceInterfaceReport     `cbor:"3808,keyasint,omitempty"`
 }
 
 func NewSPDMClaims() *SPDMClaims {
@@ -39,12 +41,20 @@ func (s *SPDMClaims) SetDefaultCert(certChain []byte) error {
 		return fmt.Errorf("no valid certificates found in cert chain from %q", certChain)
 	}
 
+	if s.Certificates == nil {
+		s.Certificates = & SPDMCertificates{}
+	}
+
 	s.Certificates.DefaultCertSlot = certChain
 
 	return nil
 }
 
 type SPDMMeasurementBlocksSignature struct {
+	// TODO
+}
+
+type TDISPDeviceInterfaceReport struct {
 	// TODO
 }
 

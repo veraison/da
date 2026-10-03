@@ -6,6 +6,8 @@ package da
 import (
 	"crypto/x509"
 	"fmt"
+
+	"github.com/fxamacker/cbor/v2"
 )
 
 const SPDMEatProfile = "tag:linaro.org,2025:device-spdm#1.0.0"
@@ -23,6 +25,14 @@ func NewSPDMClaims() *SPDMClaims {
 	return &SPDMClaims{
 		EatProfile: SPDMEatProfile,
 	}
+}
+
+func (s *SPDMClaims) ToCBOR() ([]byte, error) {
+	em, err := cbor.CoreDetEncOptions().EncMode()
+	if err != nil {
+		return nil, err
+	}
+	return em.Marshal(s)
 }
 
 func (s *SPDMClaims) AddMeasurement(index uint8, meas SPDMMeasurement) error {

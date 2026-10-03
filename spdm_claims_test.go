@@ -38,7 +38,7 @@ func TestSPDMClaims_Marshal_OK(t *testing.T) {
 	}
 
 	for _, v := range tv {
-		actual, err := cbor.Marshal(v.t)
+		actual, err := v.t.ToCBOR()
 		assert.NoError(t, err)
 		assert.Equal(t, readTestVectorSlice(t, v.expected), actual)
 	}

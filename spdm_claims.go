@@ -8,6 +8,8 @@ import (
 	"fmt"
 )
 
+const SPDMEatProfile = "tag:linaro.org,2025:device-spdm#1.0.0"
+
 type SPDMClaims struct {
 	EatProfile            string                          `cbor:"265,keyasint"`
 	Measurements          map[uint8]SPDMMeasurement       `cbor:"3802,keyasint,omitempty"`
@@ -19,7 +21,7 @@ type SPDMClaims struct {
 
 func NewSPDMClaims() *SPDMClaims {
 	return &SPDMClaims{
-		EatProfile: "tag:linaro.org,2025:device-spdm#1.0.0",
+		EatProfile: SPDMEatProfile,
 	}
 }
 
@@ -42,7 +44,7 @@ func (s *SPDMClaims) SetDefaultCert(certChain []byte) error {
 	}
 
 	if s.Certificates == nil {
-		s.Certificates = & SPDMCertificates{}
+		s.Certificates = &SPDMCertificates{}
 	}
 
 	s.Certificates.DefaultCertSlot = certChain
@@ -51,11 +53,11 @@ func (s *SPDMClaims) SetDefaultCert(certChain []byte) error {
 }
 
 type SPDMMeasurementBlocksSignature struct {
-	// TODO
+	// TODO: define this
 }
 
 type TDISPDeviceInterfaceReport struct {
-	// TODO
+	// TODO: define this
 }
 
 type ComponentType int

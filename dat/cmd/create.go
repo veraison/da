@@ -73,7 +73,7 @@ TODO.
 				}
 			}
 
-			// Serialise DA EAT to CBOR
+			// Serialize DA EAT to CBOR
 			daBytes, err := dat.ToCBOR()
 			if err != nil {
 				return fmt.Errorf("serializing DA token to CBOR: %w", err)

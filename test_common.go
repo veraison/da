@@ -11,8 +11,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-var ()
-
 func readTestVectorSlice(t *testing.T, fname string) []byte {
 	b, err := os.ReadFile(path.Join("testvectors", fname)) // nolint:gosec
 	require.NoError(t, err)
@@ -21,7 +19,7 @@ func readTestVectorSlice(t *testing.T, fname string) []byte {
 
 func exampleSPDMClaims1() *SPDMClaims {
 	return &SPDMClaims{
-		EatProfile: "tag:linaro.org,2025:device-spdm#1.0.0",
+		EatProfile: SPDMEatProfile,
 		Measurements: map[uint8]SPDMMeasurement{
 			1: {
 				ComponentType:  2,
@@ -40,7 +38,7 @@ func exampleSPDMClaims1() *SPDMClaims {
 
 func exampleSPDMClaims2() *SPDMClaims {
 	return &SPDMClaims{
-		EatProfile: "tag:linaro.org,2025:device-spdm#1.0.0",
+		EatProfile: SPDMEatProfile,
 		Measurements: map[uint8]SPDMMeasurement{
 			1: {
 				ComponentType: 1,

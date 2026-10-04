@@ -31,7 +31,7 @@ cborBytes, err := token.ToCBOR()
 ## Running Tests
 
 ```sh
-go test -v ./...
+make test
 ```
 
 ## References
